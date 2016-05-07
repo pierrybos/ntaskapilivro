@@ -28,11 +28,13 @@ module.exports = function(app){
 
         var modelDir = path.join(dir, file);
         var model = sequelize.import(modelDir);
+
         db.models[model.name] = model;
 
     });
 
     Object.keys(db.models).forEach(function(key){
+
         db.models[key].associate(db.models);
 
     });
