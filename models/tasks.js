@@ -11,6 +11,11 @@ module.exports = function(sequelize, DataType){
             allowNull: false,
             validate: { notEmpty: true }
         },
+        user_id: {
+            type: DataType.INTEGER,
+            allowNull: false,
+            validate: { notEmpty: true }
+        },
         done: {
             type: DataType.BOOLEAN,
             allowNull:false,

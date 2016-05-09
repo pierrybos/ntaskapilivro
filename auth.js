@@ -1,14 +1,29 @@
 var passport = require("passport");
-var Strategy = require("passport-jwt");
+var Strategy = require("passport-jwt")["Strategy"];
+var ExtractJwt = require("passport-jwt")["ExtractJwt"];
 
 module.exports = function(app){
 
 	var Users = app.db.models.Users;
-	var ctg = app.libs.config;
+	var cfg = app.libs.config;
 
-	var strategy = new Strategy({ secretOrKey: cfg.jwtSecret }, function(payload, done){
+	var params = { 
+		secretOrKey: cfg.jwtSecret 
+		, jwtFromRequest: ExtractJwt.fromAuthHeader()
+	};
+
+	var strategy = new Strategy(params, function(payload, done){
 		Users.findById(payload.id)
 			.then(function(user){
+
+				console.log(user);
+				for(var prop in user){
+						console.log(prop);
+						console.log(user[prop]);
+					}
+			console.log(user.id);
+			console.log(user.email);
+
 				if(user){
 					return done(null, {id: user.id, email: user.email})
 				}
@@ -27,7 +42,7 @@ module.exports = function(app){
 			return passport.initialize();
 		}
 		, authenticate: function(){
-			return passport.authenticate("jwt", cfg.jwtSessao);
+			return passport.authenticate("jwt", cfg.jwtSession);
 		}
 	};
 };

@@ -9,7 +9,7 @@ var db;
 
 module.exports = function(app){
     if(!db){
-        var config = app.libs.configs;
+        var config = app.libs.config;
         var sequelize = new Sequelize(
             config.database,
             config.username,

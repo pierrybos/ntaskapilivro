@@ -18,15 +18,23 @@ module.exports = function(sequelize, DataType){
             unique: true,            
             allowNull: false,
             validate: { notEmpty: true }
-        }
+        },
+            password: {
+      type: DataType.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true
+      }
+    }
+
     }, {
         hooks: {
             beforeCreate: function(user){
                 var salt = bcrypt.genSaltSync();
                 user.password = bcrypt.hashSync(user.password, salt);
             }
-        }
-    }, {
+        },
+    // }, {
         classMethods: {
             associate: function(models){
                 Users.hasMany(models.Tasks);
