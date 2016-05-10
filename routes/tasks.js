@@ -1,7 +1,6 @@
 module.exports = function(app){
     var Tasks = app.db.models.Tasks;
 
-    console.log(Tasks);
 
     app.route("/tasks")
         .all(app.auth.authenticate())
@@ -10,12 +9,12 @@ module.exports = function(app){
 //    		next();
 //    	})
     	.get(function(req, res){
-    		console.log(arguments);
+    		
     		Tasks.findAll({
                 where: { user_id: req.user.id }
             })
     			.then(function (result) {
-    				console.log(result);
+    				
     				 res.json(result);
     			})
     			.catch(function (error) {

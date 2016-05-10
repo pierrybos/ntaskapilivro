@@ -16,13 +16,6 @@ module.exports = function(app){
 		Users.findById(payload.id)
 			.then(function(user){
 
-				console.log(user);
-				for(var prop in user){
-						console.log(prop);
-						console.log(user[prop]);
-					}
-			console.log(user.id);
-			console.log(user.email);
 
 				if(user){
 					return done(null, {id: user.id, email: user.email})

@@ -1,5 +1,5 @@
 module.exports = {
-    database: "ntask"
+    database: "ntask_test"
     , username: ""
     , password: ""
     , params: {
