@@ -5,7 +5,9 @@ module.exports = {
     , params: {
         dialect: "sqlite"
         , storage: "ntask.sqlite"
-        // , logging: false
+        , logging: function(sql){
+            logger.info("[" + (new Date()) + "]" + sql);
+        }
         , define: {
             unserscored: true
         }
