@@ -37,3 +37,6 @@
 {"level":"info","message":"::ffff:127.0.0.1 - - [11/May/2016:11:27:23 +0000] \"GET /favicon.ico HTTP/1.1\" 404 24\n","timestamp":"2016-05-11T11:27:23.417Z"}
 {"level":"info","message":"::ffff:127.0.0.1 - - [11/May/2016:11:27:43 +0000] \"GET / HTTP/1.1\" 200 29\n","timestamp":"2016-05-11T11:27:43.776Z"}
 {"level":"info","message":"::ffff:127.0.0.1 - - [11/May/2016:11:27:45 +0000] \"GET / HTTP/1.1\" 200 29\n","timestamp":"2016-05-11T11:27:45.089Z"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [13/May/2016:00:51:43 +0000] \"GET / HTTP/1.1\" 200 29\n","timestamp":"2016-05-13T00:51:43.640Z"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [13/May/2016:00:51:43 +0000] \"GET /favicon.ico HTTP/1.1\" 404 24\n","timestamp":"2016-05-13T00:51:43.691Z"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [13/May/2016:00:51:56 +0000] \"GET / HTTP/1.1\" 200 29\n","timestamp":"2016-05-13T00:51:56.457Z"}

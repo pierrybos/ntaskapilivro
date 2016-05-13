@@ -3,6 +3,7 @@ var express = require('express');
 var morgan = require('morgan');
 var cors = require('cors');
 var compression = require('compression');
+var helmet = require('helmet');
 var logger = require('./logger.js');
 
 module.exports = function(app){
@@ -15,10 +16,11 @@ module.exports = function(app){
     		}
     	}
     }));
+    app.use(helmet());
     app.use(cors({
-    	origin: ["http://localhost:3001", "http://localhost:3000", "https://localhost:3001", "https://localhost:3000"],
-    	methods:["GET", "POST", "PUT", "DELETE"],
-    	allowedHeaders: ["Content-Type", "Authorization"]
+        origin: ["http://localhost:3001", "http://localhost:3000", "https://localhost:3001", "https://localhost:3000"],
+        methods:["GET", "POST", "PUT", "DELETE"],
+        allowedHeaders: ["Content-Type", "Authorization"]
     }));
     app.use(compression());
     app.use(bodyParser.json());
